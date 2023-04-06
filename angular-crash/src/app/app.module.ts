@@ -10,7 +10,20 @@ import { TasksComponent } from './components/tasks/tasks.component'
 import { TaskItemComponent } from './components/task-item/task-item.component'
 import { AddTaskComponent } from './components/add-task/add-task.component'
 import { FormsModule } from '@angular/forms'
+import { RouterModule, Routes } from '@angular/router'
+import { AboutComponent } from './components/about/about.component';
+import { FooterComponent } from './components/footer/footer.component'
 
+const appRoutes: Routes = [
+  {
+    path: '',
+    component: TasksComponent,
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
+  },
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,8 +32,16 @@ import { FormsModule } from '@angular/forms'
     TasksComponent,
     TaskItemComponent,
     AddTaskComponent,
+    AboutComponent,
+    FooterComponent,
   ],
-  imports: [BrowserModule, FontAwesomeModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    FontAwesomeModule,
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
